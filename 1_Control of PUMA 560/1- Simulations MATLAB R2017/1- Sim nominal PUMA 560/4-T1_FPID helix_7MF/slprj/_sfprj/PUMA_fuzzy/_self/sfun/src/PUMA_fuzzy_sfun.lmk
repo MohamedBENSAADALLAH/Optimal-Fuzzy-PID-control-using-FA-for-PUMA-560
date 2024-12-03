@@ -1,0 +1,62 @@
+CC     = "C:\Program Files\MATLAB\R2014a\sys\lcc64\lcc64\bin\lcc64.exe"
+LD     = "C:\Program Files\MATLAB\R2014a\sys\lcc64\lcc64\bin\lcclnk64.exe"
+LIBCMD = "C:\Program Files\MATLAB\R2014a\sys\lcc64\lcc64\bin\lcclib64.exe"
+CFLAGS = -dll -noregistrylookup  -c -Zp8 -DLCC_WIN64 -DMATLAB_MEX_FILE -DMX_COMPAT_32 -nodeclspec 
+LDFLAGS = -s -dll -L"C:\Program Files\MATLAB\R2014a\sys\lcc64\lcc64\lib64" -entry LibMain -map sfun.map 
+LIBFLAGS = 
+
+OBJECTS = \
+	"PUMA_fuzzy_sfun.obj"\
+	"c1_PUMA_fuzzy.obj"\
+	"c2_PUMA_fuzzy.obj"\
+	"c3_PUMA_fuzzy.obj"\
+	"c4_PUMA_fuzzy.obj"\
+	"c5_PUMA_fuzzy.obj"\
+	"c6_PUMA_fuzzy.obj"\
+	"c7_PUMA_fuzzy.obj"\
+	"c8_PUMA_fuzzy.obj"\
+	"c9_PUMA_fuzzy.obj"\
+	"PUMA_fuzzy_sfun_registry.obj"\
+	"lccstub.obj"\
+	"PUMA_fuzzy_sfun.def"\
+	"C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft\sf_runtime.lib"\
+	"C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft\libmwblas.lib"\
+	"C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft\libmx.lib"\
+	"C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft\libmex.lib"\
+	"C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft\libmat.lib"\
+	"C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft\libfixedpoint.lib"\
+	"C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft\libut.lib"\
+	"C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft\libmwmathutil.lib"\
+	"C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft\libemlrt.lib"\
+	"C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft\libmwsl_log_load_blocks.lib"\
+	"C:\Program Files\MATLAB\R2014a\lib\win64\libippmwipt.lib"\
+
+INCLUDE_PATH= -I"C:\Program Files\MATLAB\R2014a\sys\lcc64\lcc64\include64"  -I"C:\Program Files\MATLAB\R2014a\extern\include"  -I"C:\Program Files\MATLAB\R2014a\simulink\include"  -I"C:\Program Files\MATLAB\R2014a\stateflow\c\mex\include"  -I"C:\Program Files\MATLAB\R2014a\rtw\c\src"  -I"F:\Fuzzy Control of PUMA Robot\slprj\_sfprj\PUMA_fuzzy\_self\sfun\src" 
+ 
+
+PUMA_fuzzy_sfun.mexw64 : $(MAKEFILE) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o PUMA_fuzzy_sfun.mexw64 @PUMA_fuzzy_sfun.lmko
+PUMA_fuzzy_sfun.obj :	"PUMA_fuzzy_sfun.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "PUMA_fuzzy_sfun.c"
+c1_PUMA_fuzzy.obj :	"c1_PUMA_fuzzy.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c1_PUMA_fuzzy.c"
+c2_PUMA_fuzzy.obj :	"c2_PUMA_fuzzy.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c2_PUMA_fuzzy.c"
+c3_PUMA_fuzzy.obj :	"c3_PUMA_fuzzy.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c3_PUMA_fuzzy.c"
+c4_PUMA_fuzzy.obj :	"c4_PUMA_fuzzy.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c4_PUMA_fuzzy.c"
+c5_PUMA_fuzzy.obj :	"c5_PUMA_fuzzy.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c5_PUMA_fuzzy.c"
+c6_PUMA_fuzzy.obj :	"c6_PUMA_fuzzy.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c6_PUMA_fuzzy.c"
+c7_PUMA_fuzzy.obj :	"c7_PUMA_fuzzy.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c7_PUMA_fuzzy.c"
+c8_PUMA_fuzzy.obj :	"c8_PUMA_fuzzy.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c8_PUMA_fuzzy.c"
+c9_PUMA_fuzzy.obj :	"c9_PUMA_fuzzy.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c9_PUMA_fuzzy.c"
+PUMA_fuzzy_sfun_registry.obj :	"PUMA_fuzzy_sfun_registry.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "PUMA_fuzzy_sfun_registry.c"
+lccstub.obj :	"C:\Program Files\MATLAB\R2014a\sys\lcc64\lcc64\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2014a\sys\lcc64\lcc64\mex\lccstub.c"
